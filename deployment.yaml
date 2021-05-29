@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  # deployment name
+  name: my-frontend-app
+  labels:
+    app: my-frontend-app
+spec:
+  # number of replicated pods
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-frontend-app
+  template:
+    metadata:
+      labels:
+        app: my-frontend-app
+    spec:
+      containers:
+      # docker image name
+      - name: udagram-frontend
+        image: abdelrahmansherif/udacity-udagram-frontend
+        ports:
+        - containerPort: 80
